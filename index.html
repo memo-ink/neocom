@@ -1,0 +1,204 @@
+
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="UTF-8">
+      <title></title>
+      <!-- Tell the browser to be responsive to screen width -->
+      <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+      <!--link rel="stylesheet" href="assets/css/responsive_drop.css"-->
+      <style type="text/css">.jqstooltip { position: absolute;left: 0px;top: 0px;visibility: hidden;background: rgb(0, 0, 0) transparent;background-color: rgba(0,0,0,0.6);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";color: white;font: 10px arial, san serif;text-align: left;white-space: nowrap;padding: 5px;border: 1px solid white;z-index: 10000;}.jqsfield { color: white;font: 10px arial, san serif;text-align: left;}</style>
+      <link rel="stylesheet" href="assets/css/style.css" type="text/css" media="screen"/>
+      <style>
+         span.reference{
+         position:fixed;
+         left:5px;
+         top:5px;
+         font-size:10px;
+         text-shadow:1px 1px 1px #fff;
+         }
+         span.reference a{
+         color:#555;
+         text-decoration:none;
+         text-transform:uppercase;
+         }
+         span.reference a:hover{
+         color:#000;
+         }
+         h1{
+         color:#ccc;
+         font-size:36px;
+         text-shadow:1px 1px 1px #fff;
+         padding:20px;
+         }
+      </style>
+   </head>
+   <body>
+      <div id="content">
+         <h1></h1>
+         <div id="wrapper">
+            <div id="navigation"  style="display:none;">
+               <ul>
+                  <li class="selected">
+                     <a href="#">Datos</a>
+                  </li>
+                  <li>
+                     <a href="#">Precios</a>
+                  </li>
+                  <li>
+                     <a href="#">Impuestos</a>
+                  </li>
+                  <li>
+                     <a href="#">Registros</a>
+                  </li>
+                  <li>
+                     <a href="#">Confirm</a>
+                  </li>
+               </ul>
+            </div>
+            <div id="steps">
+               <form id="formElem" name="formElem" action="" method="post">
+                  <fieldset class="step">
+                     <legend>Datos Generales</legend>
+                     <div class="form-group c-12">
+                        <div class="c-6">
+                           <label for="CVE_ART" class="c-4 mtop control-label">Clave</label>
+                           <div class="c-8 mtop">
+                              <input type="text" id="CVE_ART" name="CVE_ART" value="<?php echo $clave;?>">
+                           </div>
+                           <label for="CVE_ALTER" class="c-4 mtop control-label">Clave alterna</label>
+                           <div class="c-8 mtop">
+                              <input type="text" id="CVE_ALTER" name="CVE_ALTER" value="">
+                           </div>
+                        </div>
+                        <div class="c-6">imagen</div>
+                     </div>
+                     <div class="form-group c-12">
+                        <label for="DESCR" class="c-2 control-label">Descripci&oacute;n</label>
+                        <div class="c-10">
+                           <input type="text" id="DESCR" name="DESCR" value="<?php echo $des;?>">
+                        </div>
+                     </div>
+                     <div class="form-group c-12">
+                        <label for="LIN_PROD" class="c-2 control-label">L&iacute;nea</label>
+                        <div class="c-4">
+                           <input type="text" id="LIN_PROD" name="LIN_PROD" value="<?php echo $linea;?>">
+                        </div>
+                        <label for="UNI_MED" class="c-2 control-label">Unidad de entrada</label>
+                        <div class="c-4">
+                           <input type="text" id="UNI_MED" name="UNI_MED" value="<?php echo $unidad;?>">
+                        </div>
+                     </div>
+                     <div class="form-group c-12">
+                        <label for="TIEM_SURT" class="c-2 control-label">Tiempo de surtido</label>
+                        <div class="c-4">
+                           <input type="text" id="TIEM_SURT" name="TIEM_SURT" value="<?php echo $t_sur;?>">
+                        </div>
+                        <label for="UNI_ALT" class="c-2 control-label">Unidad de salida</label>
+                        <div class="c-4">
+                           <input type="text" id="UNI_ALT" name="UNI_ALT" value="<?php echo $uni_sal;?>">
+                        </div>
+                     </div>
+                     <div class="form-group c-12">
+                        <label for="CTRL_ALM" class="c-2 control-label">Control de almac&eacute;n</label>
+                        <div class="c-4">
+                           <input type="text" id="CTRL_ALM" name="CTRL_ALM" value="<?php echo $c_alm;?>">
+                        </div>
+                        <label for="FAC_CONV" class="c-2 control-label">Factor entre unidades</label>
+                        <div class="c-4">
+                           <input type="text" id="FAC_CONV" name="FAC_CONV" value="<?php echo $factor;?>">
+                        </div>
+                     </div>
+                     <div class="form-group c-12">
+                        <label for="VOLUMEN" class="c-2 control-label">Volumen</label>
+                        <div class="c-2">
+                           <input type="text" id="VOLUMEN" name="VOLUMEN" value="<?php echo $volumen;?>">
+                        </div>
+                        <label for="PESO" class="c-2 control-label">Peso</label>
+                        <div class="c-2">
+                           <input type="text" id="PESO" name="PESO" value="<?php echo $peso;?>">
+                        </div>
+                        <label for="UNI_EMPR" class="c-2 control-label">Unidad de empaque</label>
+                        <div class="c-2">
+                           <input type="text" id="UNI_EMPR" name="UNI_EMPR" value="<?php echo $uni_emp;?>">
+                        </div>
+                     </div>
+                     <div class="form-group c-12">
+                        <div class="c-2">
+                           <input type="checkbox" class="checkbox" id="CON_SERIE" name="CON_SERIE" <?php echo $ser;?>>
+                        </div>
+                        <label for="CON_SERIE" class="c-2 control-label">Numeros de serie</label>
+                        <div class="c-2">
+                           <input type="checkbox" class="checkbox" id="CON_LOTE" name="CON_LOTE" <?php echo $lot;?>>
+                        </div>
+                        <label for="CON_LOTE" class="c-2 control-label">Lotes</label>
+                        <div class="c-2">
+                           <input type="checkbox" class="checkbox" id="CON_PEDIMENTO" name="CON_PEDIMENTO" <?php echo $ped;?>>
+                        </div>
+                        <label for="CON_PEDIMENTO" class="c-2 control-label">Pedimentos anuales</label>
+                     </div>
+                  </fieldset>
+                  <fieldset class="step">
+                     <legend>Precios y control</legend>
+                     <div class="form-group c-7">
+
+                       <label for="PRECIO" class="c-4 control-label">Precio publico</label>
+                       <div class="c-8">
+                          <input type="text" id="PRECIO" name="PRECIO" value="">
+                       </div>
+                       <label for="NUM_MON" class="c-4 control-label">Moneda</label>
+                       <div class="c-8">
+                          <input type="text" id="NUM_MON" name="NUM_MON" value="">
+                       </div>
+                       <div class="space"></div>
+                       <h3>Costeo</h3>
+                       <div class="c-2">
+                          <input type="radio">
+                       </div>
+                       <label for="VOLUMEN" class="c-8 control-label">UEPS</label>
+                     </div>
+
+                     <div class="form-group c-5">
+                       <label for="EXIST" class="c-4 control-label">Existencia</label>
+                       <div class="c-8">
+                          <input type="text" id="EXIST" name="EXIST" value="<?php echo $exist;?>">
+                       </div>
+                       <label for="STOCK_MIN" class="c-4 control-label">Stock m&iacute;n.</label>
+                       <div class="c-8">
+                          <input type="text" id="STOCK_MIN" name="STOCK_MIN" value="<?php echo $s_min;?>">
+                       </div>
+                       <label for="STOCK_MAX" class="c-4 control-label">Stock m&aacute;x.</label>
+                       <div class="c-8">
+                          <input type="text" id="STOCK_MAX" name="STOCK_MAX" value="<?php echo $s_max;?>">
+                       </div>
+                       <label for="APART" class="c-4 control-label">Apartado</label>
+                       <div class="c-8">
+                          <input type="text" id="APART" name="APART" value="<?php echo $apart;?>">
+                       </div>
+                     </div>
+                  </fieldset>
+                  <fieldset class="step">
+                     <legend>Impuestos</legend>
+
+                  </fieldset>
+                  <fieldset class="step">
+                     <legend>Registros y acumulado</legend>
+
+                  </fieldset>
+                  <fieldset class="step">
+                     <legend>Confirm</legend>
+
+                     <p class="submit">
+                        <button id="registerButton" type="submit">Guardar</button>
+                     </p>
+                  </fieldset>
+               </form>
+            </div>
+         </div>
+      </div>
+      <!-- jQuery 2.1.4 -->
+      <script src="assets/js/jQuery-2.js"></script>
+      <!--script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script-->
+      <script type="text/javascript" src="assets/js/sliding.form.js"></script>
+   </body>
+</html>
